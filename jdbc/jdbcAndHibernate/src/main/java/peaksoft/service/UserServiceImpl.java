@@ -1,31 +1,58 @@
 package peaksoft.service;
 
+import peaksoft.dao.UserDao;
+import peaksoft.dao.UserDaoJdbcImpl;
 import peaksoft.model.User;
 
+import java.sql.SQLException;
 import java.util.List;
 
-public class UserServiceImpl implements UserService {
+public abstract class UserServiceImpl implements UserService {
 
-    public void createUsersTable() {
+    private final UserDao userDao = new UserDaoJdbcImpl() {
+        @Override
+        public void removeUserById(long id) {
+            userDao.removeUserById();
 
-    }
+        }
 
-    public void dropUsersTable() {
+        @Override
+        public void removeUserById(int id) throws SQLException {
+            userDao.removeUserById();
 
-    }
+        }
 
-    public void saveUser(String name, String lastName, byte age) {
+        @Override
+        public void dropUsersTable() {
+            userDao.dropUsersTable();
+        }
 
-    }
+        @Override
+        public void createUsersTable() {
+            userDao.createUsersTable();
 
-    public void removeUserById(long id) {
+        }
 
-    }
+        @Override
+        public void saveUser(String name, String lastName, byte age) {
+            userDao.saveUser(name, lastName, age);
 
-    public List<User> getAllUsers() {
-        return null;
-    }
 
-    public void cleanUsersTable() {
-    }
+        }
+
+        @Override
+        public List<User> getAllUsers() throws SQLException {
+            return null;
+        }
+
+        @Override
+        public void cleanUsersTable() {
+            userDao.cleanUsersTable();
+        }
+
+        @Override
+        public String toString() {
+            return "$classname{}";
+        }
+    };
 }

@@ -1,10 +1,15 @@
 package peaksoft.dao;
 
 import peaksoft.model.User;
+import peaksoft.util.Config;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
-public class UserDaoHibernateImpl implements UserDao {
+public abstract class UserDaoHibernateImpl implements UserDao {
+
 
     public UserDaoHibernateImpl() {
 
@@ -13,10 +18,13 @@ public class UserDaoHibernateImpl implements UserDao {
     @Override
     public void createUsersTable() {
 
+
     }
+
 
     @Override
     public void dropUsersTable() {
+
 
     }
 
