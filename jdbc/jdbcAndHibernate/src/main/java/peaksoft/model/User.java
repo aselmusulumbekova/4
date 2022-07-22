@@ -1,7 +1,6 @@
 package peaksoft.model;
 
 import javax.persistence.*;
-import java.lang.annotation.Repeatable;
 
 @Entity
 @Table(name = "users")
@@ -18,7 +17,7 @@ public class User {
     public User(String id, String name, String lastName, int age) {
     }
 
-    public User(String name, String lastName, Byte age) {
+    public User(long id, String name, String lastName, Byte age) {
         this.name = name;
         this.lastName = lastName;
         this.age = age;

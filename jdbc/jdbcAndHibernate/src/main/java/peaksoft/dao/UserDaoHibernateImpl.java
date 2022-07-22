@@ -1,14 +1,12 @@
 package peaksoft.dao;
 
+import jdk.internal.jimage.ImageStream;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.SessionBuilder;
 import peaksoft.model.User;
 import peaksoft.util.Config;
 import sun.security.krb5.Config;
 
-import javax.management.Query;
-import java.sql.SQLException;
 import java.util.List;
 
 public class UserDaoHibernateImpl implements UserDao {
@@ -47,9 +45,9 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public void saveUser(String name, String lastName, byte age) {
-        try { Session session=Util.getSession().openSession();
+        try { Session session=Config.getSession.openSession();
             session.beginTransaction();
-            User user=new User(name,lastName,age);
+            User user=new User(resultSet.getLong("id"), name,lastName,age);
             session.save(user);
             session.getTransaction().commit();
             session.close();
