@@ -9,18 +9,18 @@ public interface UserService {
 
     void createUsersTable();
 
+
     void dropUsersTable();
 
     void saveUser(String name, String lastName, byte age);
 
-    void removeUserById(long id);
 
     List<User> getAllUsers() throws SQLException;
 
     void cleanUsersTable();
 
-    void dropTable();
+    void removeUserById(byte b);
 
-    void cleanTable();
+
 }
 

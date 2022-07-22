@@ -1,8 +1,16 @@
 package peaksoft.model;
 
+import javax.persistence.*;
+import java.lang.annotation.Repeatable;
 
+@Entity
+@Table(name = "users")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
+    @Column
     private String name;
     private String lastName;
     private Byte age;
@@ -14,6 +22,10 @@ public class User {
         this.name = name;
         this.lastName = lastName;
         this.age = age;
+    }
+
+    public User() {
+
     }
 
     public Long getId() {
